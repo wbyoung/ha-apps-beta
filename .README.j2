@@ -1,0 +1,64 @@
+# Home Assistant Apps
+
+![Maintenance][maintenance-shield]
+[![License][license-shield]](LICENSE.md)
+[![Github Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-grey?&logo=GitHub-Sponsors&logoColor=EA4AAA)][gh-sponsors]
+
+## About
+
+Home Assistant allows anyone to create app repositories to share their
+apps for Home Assistant easily. This repository is one of those repositories,
+providing extra Home Assistant apps for your installation.
+
+## Installation
+
+[![Add app repository to Home Assistant.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fwbyoung%2Fha-apps)
+
+In the Home Assistant app store, a possibility to add a repository is provided.
+Use the button above or the following URL to add this repository:
+
+```txt
+{{ repo }}
+```
+
+## Apps provided by this repository
+
+{% for addon in addons %}
+### &#10003; [{{ addon.name }}][addon-{{ addon.target }}]
+
+![Latest Version][{{ addon.target }}-version-shield]
+![Supports armhf Architecture][{{ addon.target }}-armhf-shield]
+![Supports armv7 Architecture][{{ addon.target }}-armv7-shield]
+![Supports aarch64 Architecture][{{ addon.target }}-aarch64-shield]
+![Supports amd64 Architecture][{{ addon.target }}-amd64-shield]
+![Supports i386 Architecture][{{ addon.target }}-i386-shield]
+
+{{ addon.description }}
+
+[:books: {{ addon.name }} app documentation][addon-doc-{{ addon.target }}]
+
+{% endfor %}
+## Support
+
+Please open an issue on the appropriate GitHub repository for an app.
+
+{% for addon in addons %}
+- [Open an issue for the app: {{ addon.name }}][{{ addon.target }}-issue]
+{% endfor %}
+
+{% for addon in addons %}
+[addon-{{ addon.target }}]: {{ addon.repo }}/tree/{{ addon.version }}
+[addon-doc-{{ addon.target}}]: {{ addon.repo }}/blob/{{ addon.version }}/README.md
+[{{ addon.target }}-issue]: {{ addon.repo }}/issues
+[{{ addon.target }}-version-shield]: https://img.shields.io/badge/version-{{ addon.version }}-blue.svg
+{% for arch in ['aarch64', 'amd64', 'armhf', 'armv7', 'i386'] %}
+{% if arch in addon.archs %}
+[{{ addon.target }}-{{ arch }}-shield]: https://img.shields.io/badge/{{ arch }}-yes-green.svg
+{% else %}
+[{{ addon.target }}-{{ arch }}-shield]: https://img.shields.io/badge/{{ arch }}-no-red.svg
+{% endif %}
+{% endfor %}
+{% endfor %}
+[license-shield]: https://img.shields.io/github/license/{{ name }}.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
+[gh-sponsors]: https://github.com/sponsors/wbyoung
