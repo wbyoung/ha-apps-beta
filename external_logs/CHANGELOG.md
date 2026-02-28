@@ -11,6 +11,7 @@
 ## 🧰 Chore
 
 - #3 Fix build shield @wbyoung
+- #5 Cleanup config @wbyoung
 
 ## Contributors
 @wbyoung
