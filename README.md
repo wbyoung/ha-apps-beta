@@ -1,4 +1,4 @@
-# Home Assistant Apps by @wbyoung :rocket: BETA
+# Home Assistant Apps :rocket: BETA
 ![Maintenance][maintenance-shield]
 [![License][license-shield]](LICENSE.md)
 [![Github Sponsors][gh-sponsors-shield]][gh-sponsors]
